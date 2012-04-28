@@ -30,5 +30,6 @@ trait IotaSampleApp extends App with Combinator{
   cr
   p("Result:")
   run(helloworld)
+  cr
   line
 }

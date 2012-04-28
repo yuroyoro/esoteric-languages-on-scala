@@ -35,6 +35,7 @@ trait SampleApp extends App {
   cr
   p("Result:")
   run(printW)
+  cr
   line
 
   cr
@@ -47,6 +48,7 @@ trait SampleApp extends App {
   cr
   p("Result:")
   run(printX)
+  cr
   line
 
   cr
@@ -59,5 +61,6 @@ trait SampleApp extends App {
   cr
   p("Result:")
   run(helloworld)
+  cr
   line
 }

@@ -40,6 +40,7 @@ trait SampleApp extends App {
 
   p("Result:")
   run(helloworld)
+  cr
   line
 
 }

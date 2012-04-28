@@ -103,10 +103,10 @@ object Grass {
 
     def token   :Parser[String] = wToken ||| fToken ||| vToken
 
-    def app :Parser[App] = wrap( rep1( f ) ~ rep1( w ) ) ^^
+    def app :Parser[App] = wrap( rep1(f) ~ rep1(w) ) ^^
       { case ~( p, x ~ y ) => App( x.size, y.size, p ) }
 
-    def abs :Parser[Abs] = wrap( rep1( w ) ~ rep( app ) ~ rep(v) ) ^^
+    def abs :Parser[Abs] = wrap( rep1(w) ~ rep(app) ~ rep(v) ) ^^
       { case ~( p, ws ~ body ~ vs ) => Abs( ws.size, body, p ) }
 
     def prog :Parser[Runtime] = rep( abs ) ~ rep( app ) ~ rep( v ) ^^
@@ -144,10 +144,10 @@ object Grass {
     def fToken = rep1(sep) ~> rep1(wToken) <~ rep1(sep) ^^ { x => "W" * x.length }
     def vToken = """[\t\n]""".r
     override def token   :Parser[String] = wToken ||| fToken ||| vToken
-    override def app :Parser[App] = wrap(  f  ~ rep1( w ) ) ^^
+    override def app :Parser[App] = wrap(f ~ rep1( w ) ) ^^
       { case ~( p, x ~ y ) => App( x.size, y.size, p ) }
 
-    override def abs :Parser[Abs] = wrap( rep1( w ) ~ rep( app ) ~ rep(v) ) ^^
+    override def abs :Parser[Abs] = wrap(rep1(w) ~ rep(app) ~ rep(v) ) ^^
       { case ~( p, ws ~ body ~ vs ) => Abs( ws.size, body, p ) }
 
   }
