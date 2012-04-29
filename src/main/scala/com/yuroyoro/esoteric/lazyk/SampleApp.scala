@@ -11,7 +11,7 @@ trait IotaSampleApp extends App with Combinator{
   val ns:String
 
   val parser = new Parser(List(us), List(ns))
-  def run(s:String) = cl2str(_a(_a(parser.parse(s).map{_.run}.get)("")))
+  def run(s:String) = p(cl2str(_a(_a(parser.parse(s).map{_.run}.get)(""))))
 
   val helloworld:String
 
